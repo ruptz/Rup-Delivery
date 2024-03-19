@@ -13,17 +13,17 @@ Images at the bottom.
 
 ## Installation
 
-2. Clone or download the Rup-Delivery repository.
-3. Place the script files in the appropriate server resource directory.
-4. Update the `config.lua` file to configure payout ranges and framework preferences.
-5. Ensure that the necessary dependencies (`qb-core` or `ESX`) are installed and configured properly.
-6. Ensure Rup-Delivery resource in your server.cfg file.
-7. Restart or start your FiveM server.
+1. Clone or download the Rup-Delivery repository.
+2. Place the script files in the appropriate server resource directory.
+3. Update the `config.lua` file to configure payout ranges and framework preferences.
+4. Ensure that the necessary dependencies (`qb-core` or `ESX`) are installed and configured properly.
+5. Ensure Rup-Delivery resource in your server.cfg file.
+6. Restart or start your FiveM server.
 
 ## Usage
 
-- Players can gp on duty to start their delivery job.
-- Once on duty, they can complete deliveries, which when delivring packages they recieve a payout.
+- Players can go on duty to start their delivery job.
+- Once on duty, they can complete deliveries, which when delivering packages they receive a payout.
 - Payouts are randomized based on configured payout ranges and added to the player's bank account.
 
 ## Configuration
@@ -32,7 +32,7 @@ Images at the bottom.
 - Adjust the payout ranges to balance the economy of your server.
 - Choose between the `qb-core` or `ESX` framework based on your server's setup.
 - Can change where you start the Jobs and where the vehicles spawn.
-- Can change where you deliver packages aswell.
+- Can change where you deliver packages as well.
 
 ## Dependencies
 
