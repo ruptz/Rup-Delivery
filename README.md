@@ -20,7 +20,8 @@ Images at the bottom.
 3. Update the `config.lua` file to configure payout ranges and framework preferences.
 4. Ensure that the necessary dependencies (`qb-core` or `ESX`) are installed and configured properly.
 5. Ensure Rup-Delivery resource in your server.cfg file.
-6. Restart or start your FiveM server.
+6 If using ESX go into `fxmanifest.lua` and uncomment line 17
+7. Restart or start your FiveM server.
 
 ## Usage
 
