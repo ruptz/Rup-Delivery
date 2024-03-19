@@ -14,6 +14,7 @@ client_scripts {
 
 shared_scripts {
     'config.lua',
+    --'@es_extended/imports.lua' --[[ Uncomment if using ESX ]]
 }
 
 server_scripts {

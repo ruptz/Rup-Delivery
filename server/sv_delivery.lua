@@ -4,35 +4,48 @@ local drivers = {}
 
 RegisterServerEvent("rup-delivery:delivery_duty")
 AddEventHandler("rup-delivery:delivery_duty", function(onDuty)
-    local client = source
+    local src = source
     if onDuty then
-        drivers[client] = GetGameTimer()
+        drivers[src] = GetGameTimer()
     else
-        drivers[client] = nil
+        drivers[src] = nil
     end
 end)
 
 RegisterServerEvent("rup-delivery:delivery_complete")
 AddEventHandler("rup-delivery:delivery_complete", function()
-    local client = source
-    local Player = QBCore.Functions.GetPlayer(source)
-    if drivers[client] then
-        if drivers[client] < GetGameTimer() then
-            print("DEBUG - Paying for delivery.")
-            drivers[client] = GetGameTimer() + 5000
-            local payoutIndex = math.random(#Config.Payouts)
-            local payoutAmount = Config.Payouts[payoutIndex]()
-            Player.Functions.AddMoney("bank", payoutAmount, "Delivery Job")
-        else
-            print("DEBUG - Was recently paid out. Can't pay.")
+    local src = source
+    if Config.Framework == 'qb' then
+        local Player = QBCore.Functions.GetPlayer(src)
+        if drivers[src] then
+            if drivers[src] < GetGameTimer() then
+                drivers[src] = GetGameTimer() + 5000
+                local payoutIndex = math.random(#Config.Payouts)
+                local payoutAmount = Config.Payouts[payoutIndex]()
+                Player.Functions.AddMoney("bank", payoutAmount, "Delivery Job")
+            else
+                print("DEBUG - Was recently paid out. Can't pay.")
+            end
+        end
+    elseif Config.Framework == 'esx' then
+        local xPlayer = ESX.GetPlayerFromId(src)
+        if drivers[src] then
+            if drivers[src] < GetGameTimer() then
+                drivers[src] = GetGameTimer() + 5000
+                local payoutIndex = math.random(#Config.Payouts)
+                local payoutAmount = Config.Payouts[payoutIndex]()
+                xPlayer.addAccountMoney('bank', payoutAmount)
+            end
         end
     else
-        print("DEBUG - rup-delivery:delivery_complete - Not on delivery duty")
+        if Config.Debug then
+            print("DEBUG - Not on delivery duty")
+        end
     end
 end)
 
 RegisterServerEvent("rup-delivery:delivery_getroutes")
 AddEventHandler("rup-delivery:delivery_getroutes", function()
-    local ply = source
-    TriggerClientEvent("rup-delivery:delivery_routes", ply, Config.DropOffs)
+    local src = source
+    TriggerClientEvent("rup-delivery:delivery_routes", src, Config.DropOffs)
 end)

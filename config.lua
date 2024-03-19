@@ -1,5 +1,9 @@
 Config = {}
 
+Config.Debug = false
+
+Config.Framework = 'qb' --[[ qb, esx ]]
+
 Config.DropOffs = {
     [1] = vector3(152.52, 237.36, 106.97),
     [2] = vector3(646.28, 267.24, 103.26),
@@ -15,6 +19,7 @@ Config.Spawns = {
     [2] = vector4(62.66, 123.57, 79.02, 161.44),
     [3] = vector4(-425.89, 6167.91, 31.32, 315.59),
     [4] = vector4(-521.54, -2904.96, 5.83, 113.16)
+    -- Where you want the truck to spawn
 }
 
 Config.JobLoc = {
@@ -22,6 +27,7 @@ Config.JobLoc = {
     [2] = {v = vector3(78.81, 111.89, 81.16), h = 64.33, veh = "boxville2"},
     [3] = {v = vector3(-421.2, 6136.79, 31.87), h = 181.67, veh = "boxville4"},
     [4] = {v = vector3(-424.23, -2789.84, 6.52), h = 134.05, veh = "boxville4"}
+    -- Where the Job locactions are
 }
 
 Config.Payouts = {
