@@ -6,7 +6,7 @@ Images at the bottom.
 
 ## Features
 
-- Realistic delivery job mechanics inspired by GTA Online.
+- Delivery job mechanics inspired by GTA Online.
 - Configurable payout ranges for completed deliveries.
 - Compatibility with both qb-core and ESX frameworks.
 - Debugging options.
