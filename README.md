@@ -10,7 +10,7 @@ Images at the bottom.
 
 - Delivery job mechanics inspired by GTA Online.
 - Configurable payout ranges for completed deliveries.
-- Compatibility with both qb-core and ESX frameworks.
+- Compatibility with both qb-core, ESX and ND-Core frameworks.
 - Debugging options.
 
 ## Installation
