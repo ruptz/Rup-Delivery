@@ -45,6 +45,16 @@ AddEventHandler("rup-delivery:delivery_complete", function()
                 Player.addMoney("bank", payoutAmount, "Delivery Job")
             end
         end
+    elseif Config.Framework == 'qbx' then
+        local Player = exports.qbx_core:GetPlayer(source)
+        if drivers[src] then
+            if drivers[src] < GetGameTimer() then
+                drivers[src] = GetGameTimer() + 5000
+                local payoutIndex = math.random(#Config.Payouts)
+                local payoutAmount = Config.Payouts[payoutIndex]()
+                Player.Functions.AddMoney("bank", payoutAmount, "Delivery Job")
+            end
+        end
     else
         if Config.Debug then
             print("DEBUG - Not on delivery duty")
