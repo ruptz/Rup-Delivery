@@ -38,7 +38,9 @@ Images at the bottom.
 
 ## Dependencies
 
-- [qb-core](https://github.com/qbcore-framework/qb-core), [ESX](https://github.com/esx-framework) [ND-Core](https://github.com/ND-Framework/ND_Core)
+- [qb-core](https://github.com/qbcore-framework/qb-core)
+- [ESX](https://github.com/esx-framework) 
+- [ND-Core](https://github.com/ND-Framework/ND_Core)
 
 ## Credits
 
