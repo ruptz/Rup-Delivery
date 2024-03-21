@@ -32,7 +32,7 @@ Images at the bottom.
 
 - Payout ranges and framework preferences can be configured in the `config.lua` file.
 - Adjust the payout ranges to balance the economy of your server.
-- Choose between the `qb`, `esx`, `nd` or 'qbx' based on your server's setup.
+- Choose between the `qb`, `esx`, `nd` or `qbx` based on your server's setup.
 - Can change where you start the Jobs and where the vehicles spawn.
 - Can change where you deliver packages as well.
 
