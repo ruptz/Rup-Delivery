@@ -19,7 +19,7 @@ Images at the bottom.
 2. Place the script files in the appropriate server resource directory.
 3. Update the `config.lua` file to configure payout ranges and framework preferences.
 4. Ensure Rup-Delivery resource in your server.cfg file.
-5. If using `ESX or `ND-Core` go into `fxmanifest.lua` and uncomment line 17 or 18
+5. If using `ESX` or `ND-Core` go into `fxmanifest.lua` and uncomment line 17 or 18
 6. Restart or start your FiveM server.
 
 ## Usage
@@ -32,7 +32,7 @@ Images at the bottom.
 
 - Payout ranges and framework preferences can be configured in the `config.lua` file.
 - Adjust the payout ranges to balance the economy of your server.
-- Choose between the `qb-core` or `ESX` framework based on your server's setup.
+- Choose between the `qb`, `esx` or 'nd framework based on your server's setup.
 - Can change where you start the Jobs and where the vehicles spawn.
 - Can change where you deliver packages as well.
 
