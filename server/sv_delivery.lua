@@ -23,8 +23,6 @@ AddEventHandler("rup-delivery:delivery_complete", function()
                 local payoutIndex = math.random(#Config.Payouts)
                 local payoutAmount = Config.Payouts[payoutIndex]()
                 Player.Functions.AddMoney("bank", payoutAmount, "Delivery Job")
-            else
-                print("DEBUG - Was recently paid out. Can't pay.")
             end
         end
     elseif Config.Framework == 'esx' then
@@ -35,6 +33,16 @@ AddEventHandler("rup-delivery:delivery_complete", function()
                 local payoutIndex = math.random(#Config.Payouts)
                 local payoutAmount = Config.Payouts[payoutIndex]()
                 xPlayer.addAccountMoney('bank', payoutAmount)
+            end
+        end
+    elseif Config.Framework == 'nd' then
+        local Player = NDCore.getPlayer(src)
+        if drivers[src] then
+            if drivers[src] < GetGameTimer() then
+                drivers[src] = GetGameTimer() + 5000
+                local payoutIndex = math.random(#Config.Payouts)
+                local payoutAmount = Config.Payouts[payoutIndex]()
+                Player.addMoney("bank", payoutAmount, "Delivery Job")
             end
         end
     else

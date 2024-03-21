@@ -2,7 +2,7 @@ Config = {}
 
 Config.Debug = false
 
-Config.Framework = 'qb' --[[ qb, esx ]]
+Config.Framework = 'qb' --[[ qb, esx, nd ]]
 
 Config.DropOffs = {
     [1] = vector3(152.52, 237.36, 106.97),

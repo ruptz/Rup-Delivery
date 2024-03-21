@@ -18,10 +18,9 @@ Images at the bottom.
 1. Clone or download the Rup-Delivery repository.
 2. Place the script files in the appropriate server resource directory.
 3. Update the `config.lua` file to configure payout ranges and framework preferences.
-4. Ensure that the necessary dependencies (`qb-core` or `ESX`) are installed and configured properly.
-5. Ensure Rup-Delivery resource in your server.cfg file.
-6. If using ESX go into `fxmanifest.lua` and uncomment line 17
-7. Restart or start your FiveM server.
+4. Ensure Rup-Delivery resource in your server.cfg file.
+5. If using `ESX or `ND-Core` go into `fxmanifest.lua` and uncomment line 17 or 18
+6. Restart or start your FiveM server.
 
 ## Usage
 
