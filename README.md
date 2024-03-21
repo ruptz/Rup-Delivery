@@ -10,7 +10,7 @@ Images at the bottom.
 
 - Delivery job mechanics inspired by GTA Online.
 - Configurable payout ranges for completed deliveries.
-- Compatibility with both qb-core, ESX and ND-Core frameworks.
+- Compatibility with both qb-core, ESX, ND-Core and Qbox-Core frameworks.
 - Debugging options.
 
 ## Installation
@@ -32,7 +32,7 @@ Images at the bottom.
 
 - Payout ranges and framework preferences can be configured in the `config.lua` file.
 - Adjust the payout ranges to balance the economy of your server.
-- Choose between the `qb`, `esx` or `nd framework` based on your server's setup.
+- Choose between the `qb`, `esx`, `nd` or 'qbx' based on your server's setup.
 - Can change where you start the Jobs and where the vehicles spawn.
 - Can change where you deliver packages as well.
 
@@ -41,6 +41,7 @@ Images at the bottom.
 - [qb-core](https://github.com/qbcore-framework/qb-core)
 - [ESX](https://github.com/esx-framework) 
 - [ND-Core](https://github.com/ND-Framework/ND_Core)
+- [Qbox-Core](https://github.com/Qbox-project/qbx_core)
 
 ## Credits
 
