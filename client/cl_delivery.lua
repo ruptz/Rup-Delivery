@@ -112,7 +112,20 @@ function RecalculateDistance()
     table.sort(drops, compare)
 end
 
+function LoadAnimation(dict)
+    if not HasAnimDictLoaded(dict) then
+        if Config.Debug then
+            print("^5Debug^7: ^2Loading Anim Dictionary^7: '^6" .. dict .. "^7'")
+        end
+        while not HasAnimDictLoaded(dict) do
+            RequestAnimDict(dict)
+            Wait(5)
+        end
+    end
+end
+
 function PickDestination()
+    local ped = PlayerPedId()
     if not firstDest then
         RecalculateDistance()
     end
@@ -137,9 +150,15 @@ function PickDestination()
                         local ped = PlayerPedId()
                         alert("Press ~INPUT_CONTEXT~ to pick up package.")
                         if IsControlJustPressed(1, 38) then
-                            box = CreateObject(GetHashKey("prop_cs_box_clothes"), GetEntityCoords(ped), true, false, true)
-                            AttachEntityToEntity(box, ped, GetPedBoneIndex(ped, 18905), 0.3, 0.0, 0.0, 0.0, 200.0, 40.0, false, false, false, true, 0.0, true)
+                            LoadAnimation("anim@heists@box_carry@")
+                            TaskPlayAnim(ped, "anim@heists@box_carry@" ,"idle", 5.0, -1, -1, 50, 0, false, false, false)
+                            box = CreateObject(GetHashKey("prop_cs_cardbox_01"), GetEntityCoords(ped), true, false, true)
+                            AttachEntityToEntity(box, ped, GetPedBoneIndex(ped, 18905), 0.04, 0.04, 0.28, 52.0, 294.0, 177.0, 20.0, true, true, false, true, 1.0, true)
                             hasPackage = true
+                            if Config.Debug then
+                                local coords = GetEntityCoords(ped)
+                                print("^5Debug^7: ^1Prop ^2Pick-Up^7: '^6".."prop_cs_cardbox_01".."^7' | ^2Hash^7: ^7'^6"..(GetHashKey("prop_cs_cardbox_01")).."^7' | ^2Coord^7: ^5vec3^7(^6"..(coords.x).."^7, ^6"..(coords.y).."^7, ^6"..(coords.z).."^7)")
+                            end
                         end
                     end
                 else
@@ -147,6 +166,7 @@ function PickDestination()
                         alert("Press ~INPUT_CONTEXT~ to drop package.")
                         if IsControlJustPressed(1, 38) then
                             DropPackage()
+                            ClearPedTasks(ped)
                             ChatNotification("CHAR_JIMMY_BOSTON", "Post OP", "Delivery", "Nice job, Head to next delivery.")
                             TriggerServerEvent("rup-delivery:delivery_complete")
                             atDest = true
@@ -169,11 +189,15 @@ function DropPackage()
         end
         
         local offset = GetOffsetFromEntityInWorldCoords(PlayerPedId(), -0.32, 0.0, -0.07)
-        local tempBox = CreateObject(GetHashKey("prop_cs_box_clothes"), offset.x, offset.y, offset.z, true, false, true)
+        local tempBox = CreateObject(GetHashKey("prop_cs_cardbox_01"), offset.x, offset.y, offset.z, true, false, true)
 
         ActivatePhysics(tempBox)
         FreezeEntityPosition(tempBox, false)
         hasPackage = false
+
+        if Config.Debug then
+            print("^5Debug^7: ^1Prop ^2Drop-off^7: '^6".."prop_cs_cardbox_01".."^7' | ^2Hash^7: ^7'^6"..(GetHashKey("prop_cs_cardbox_01")).."^7' | ^2Coord^7: ^5vec3^7(^6"..(offset.x).."^7, ^6"..(offset.y).."^7, ^6"..(offset.z).."^7)")
+        end
         
         Citizen.CreateThread(function()
             Citizen.Wait(30000)
@@ -199,6 +223,10 @@ function StartDeliveryJob(ped, sNum)
     end
 
     dTruck = CreateVehicle(veh, Config.Spawns[sNum].x, Config.Spawns[sNum].y, Config.Spawns[sNum].z, Config.Spawns[sNum].w, true, false)
+
+    if Config.Debug then
+        print("^5Debug^7: ^1Vehicle ^2Spawned^7: '^6"..Config.JobLoc[sNum].veh.."^7' | ^2Hash^7: ^7'^6"..veh.."^7' | ^2Coord^7: ^5vec3^7(^6"..Config.Spawns[sNum].x.."^7, ^6"..Config.Spawns[sNum].y.."^7, ^6"..Config.Spawns[sNum].z.."^7, ^6"..Config.Spawns[sNum].w.."^7)")
+    end
 
     Citizen.Wait(100)
     DecorRegister("OwnerId", 3)
