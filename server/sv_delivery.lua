@@ -1,5 +1,3 @@
-local QBCore = exports["qb-core"]:GetCoreObject()
-
 local drivers = {}
 
 RegisterServerEvent("rup-delivery:delivery_duty")
@@ -16,6 +14,7 @@ RegisterServerEvent("rup-delivery:delivery_complete")
 AddEventHandler("rup-delivery:delivery_complete", function()
     local src = source
     if Config.Framework == 'qb' then
+        local QBCore = exports["qb-core"]:GetCoreObject()
         local Player = QBCore.Functions.GetPlayer(src)
         if drivers[src] then
             if drivers[src] < GetGameTimer() then
