@@ -4,6 +4,7 @@ Rup-Delivery is a free delivery script designed to copy the style found in GTA O
 
 Images at the bottom.
 
+Support, please join below.
 [DISCORD](https://discord.gg/FPb9dqUGd9)
 
 ## Features
