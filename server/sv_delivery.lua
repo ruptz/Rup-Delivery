@@ -35,6 +35,7 @@ AddEventHandler("rup-delivery:delivery_complete", function()
             end
         end
     elseif Config.Framework == 'nd' then
+        local NDCore = exports["ND_Core"]
         local Player = NDCore.getPlayer(src)
         if drivers[src] then
             if drivers[src] < GetGameTimer() then
