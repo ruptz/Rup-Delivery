@@ -236,7 +236,19 @@ function StartDeliveryJob(ped, sNum)
     SetModelAsNoLongerNeeded(veh)
     SetEntityAsMissionEntity(dTruck, true, true)
     SetPedIntoVehicle(ped, dTruck, -1)
-    SetVehicleDoorsLocked(dTruck, 1)
+    if Config.Framework == 'qb' then
+        TriggerServerEvent('qb-vehiclekeys:server:GiveVehicleKeys', GetVehicleNumberPlateText(dTruck))
+        elseif Config.Framework == 'esx' then
+            SetVehicleDoorsLocked(dTruck, 1)
+        elseif Config.Framework == 'nd' then
+            SetVehicleDoorsLocked(dTruck, 1)
+        elseif Config.Framework == 'qbx' then
+            TriggerServerEvent('qb-vehiclekeys:server:GiveVehicleKeys', -1, GetVehicleNumberPlateText(dTruck))
+        else
+            SetVehicleDoorsLocked(dTruck, 1)
+            print("^5Debug^7: ^1You dont have a framework selected for keys")
+        end
+    end
 
     isOnDeliveryDuty = true
 
