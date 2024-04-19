@@ -4,7 +4,7 @@ game 'gta5'
 author 'Ruptz'
 description 'Delivery script made to look like GTA Online'
 
-version '1.1.1'
+version '1.1.2'
 
 repository 'https://github.com/ruptz/Rup-Delivery'
 
