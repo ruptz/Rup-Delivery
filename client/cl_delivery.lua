@@ -237,13 +237,13 @@ function StartDeliveryJob(ped, sNum)
     SetEntityAsMissionEntity(dTruck, true, true)
     SetPedIntoVehicle(ped, dTruck, -1)
     if Config.Framework == 'qb' then
-        TriggerServerEvent('qb-vehiclekeys:server:GiveVehicleKeys', GetVehicleNumberPlateText(dTruck))
+        TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(dTruck))
     elseif Config.Framework == 'esx' then
         SetVehicleDoorsLocked(dTruck, 1)
     elseif Config.Framework == 'nd' then
         SetVehicleDoorsLocked(dTruck, 1)
     elseif Config.Framework == 'qbx' then
-        TriggerServerEvent('qb-vehiclekeys:server:GiveVehicleKeys', -1, GetVehicleNumberPlateText(dTruck))
+        TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(dTruck))
     else
         SetVehicleDoorsLocked(dTruck, 1)
         print("^5Debug^7: ^1You dont have a framework selected for keys")
