@@ -237,12 +237,14 @@ function StartDeliveryJob(ped, sNum)
     SetEntityAsMissionEntity(dTruck, true, true)
     SetPedIntoVehicle(ped, dTruck, -1)
     if Config.Framework == 'qb' then
+        local QBCore = exports["qb-core"]:GetCoreObject()
         TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(dTruck))
     elseif Config.Framework == 'esx' then
         SetVehicleDoorsLocked(dTruck, 1)
     elseif Config.Framework == 'nd' then
         SetVehicleDoorsLocked(dTruck, 1)
     elseif Config.Framework == 'qbx' then
+        local QBCore = exports["qb-core"]:GetCoreObject()
         TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(dTruck))
     else
         SetVehicleDoorsLocked(dTruck, 1)
